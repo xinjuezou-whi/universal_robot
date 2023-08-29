@@ -1,6 +1,7 @@
 <launch>
   <arg name="sim" default="false" />
   <arg name="debug" default="false" />
+  <arg name="with_rviz" default="true"/>
 
   <!-- Remap follow_joint_trajectory -->
   <remap if="$(arg sim)" from="/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/eff_joint_traj_controller/follow_joint_trajectory"/>
@@ -9,4 +10,8 @@
   <include file="$(find ur10e_moveit_config)/launch/move_group.launch">
     <arg name="debug" default="$(arg debug)" />
   </include>
+
+  <group if="$(arg with_rviz)">
+    <include file="$(dirname)/moveit_rviz.launch"/>
+  </group>
 </launch>
