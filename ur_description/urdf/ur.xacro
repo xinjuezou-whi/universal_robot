@@ -26,7 +26,7 @@
    <xacro:arg name="prefix" default=""/>
    <xacro:arg name="connected_to" default=""/>
    <xacro:arg name="connected_xyz" default="0 0 0"/>
-   <xacro:arg name="connected_to" default="0 0 0"/>
+   <xacro:arg name="connected_rpy" default="0 0 0"/>
 
    <!-- arm -->
    <xacro:ur_robot
