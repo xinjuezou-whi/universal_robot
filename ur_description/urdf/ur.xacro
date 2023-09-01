@@ -1,5 +1,10 @@
+<!--
+    Refactor by WHI for connecting to other link
+     - Xinjue Zou
+-->
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg robot_model)_robot">
+<!-- <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg robot_model)_robot"> -->
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur_robot">
 
    <!-- import main macro -->
    <xacro:include filename="$(find ur_description)/urdf/inc/ur_macro.xacro"/>
@@ -18,10 +23,14 @@
    <xacro:arg name="safety_limits" default="false"/>
    <xacro:arg name="safety_pos_margin" default="0.15"/>
    <xacro:arg name="safety_k_position" default="20"/>
+   <xacro:arg name="prefix" default=""/>
+   <xacro:arg name="connected_to" default=""/>
+   <xacro:arg name="connected_xyz" default="0 0 0"/>
+   <xacro:arg name="connected_to" default="0 0 0"/>
 
    <!-- arm -->
    <xacro:ur_robot
-     prefix=""
+     prefix="$(arg prefix)"
      joint_limits_parameters_file="$(arg joint_limit_params)"
      kinematics_parameters_file="$(arg kinematics_params)"
      physical_parameters_file="$(arg physical_params)"
@@ -29,5 +38,9 @@
      transmission_hw_interface="$(arg transmission_hw_interface)"
      safety_limits="$(arg safety_limits)"
      safety_pos_margin="$(arg safety_pos_margin)"
-     safety_k_position="$(arg safety_k_position)"/>
+     safety_k_position="$(arg safety_k_position)"
+     connected_to="$(arg connected_to)"
+     connected_xyz="$(arg connected_xyz)"
+     connected_rpy="$(arg connected_rpy)"
+     />
 </robot>

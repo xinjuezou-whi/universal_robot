@@ -49,6 +49,9 @@
      - Jimmy Da Silva
      - Ajit Krisshna N L
      - Muhammad Asif Rana
+    
+    Refactor by WHI for connecting to other link
+     - Xinjue Zou
   -->
 
   <xacro:include filename="$(find ur_description)/urdf/inc/ur_transmissions.xacro" />
@@ -63,7 +66,8 @@
     transmission_hw_interface:=hardware_interface/PositionJointInterface
     safety_limits:=false
     safety_pos_margin:=0.15
-    safety_k_position:=20"
+    safety_k_position:=20
+    connected_to:='' connected_xyz=:'0 0 0' connected_rpy=:'0 0 0'"
   >
     <!-- Load configuration data from the provided .yaml files -->
     <xacro:read_model_data
@@ -74,6 +78,14 @@
 
     <!-- Add URDF transmission elements (for ros_control) -->
     <xacro:ur_arm_transmission prefix="${prefix}" hw_interface="${transmission_hw_interface}" />
+
+    <xacro:unless value="${not connected_to}">
+      <joint name="${prefix}joint_${connected_to}" type="fixed">
+        <origin xyz="${connected_xyz}" rpy="${connected_rpy}"/>
+        <parent link="${connected_to}"/>
+        <child link="${prefix}base_link"/>
+      </joint>
+    </xacro:unless>
 
     <!-- links: main serial chain -->
     <link name="${prefix}base_link"/>
