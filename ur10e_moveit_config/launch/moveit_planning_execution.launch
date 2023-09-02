@@ -1,4 +1,8 @@
 <launch>
+  <!-- urdf and srdf file -->
+  <arg name="urdf_file" default="$(find ur_description)/urdf/ur10e.xacro"/>
+  <arg name="srdf_file" default="$(find ur10e_moveit_config)/config/ur10e.srdf"/>
+
   <arg name="sim" default="false" />
   <arg name="debug" default="false" />
   <arg name="with_rviz" default="true"/>
@@ -8,6 +12,8 @@
 
   <!-- Launch moveit -->
   <include file="$(find ur10e_moveit_config)/launch/move_group.launch">
+    <arg name="urdf_file" value="$(arg urdf_file)"/>
+    <arg name="srdf_file" value="$(arg srdf_file)"/>
     <arg name="debug" default="$(arg debug)" />
   </include>
 

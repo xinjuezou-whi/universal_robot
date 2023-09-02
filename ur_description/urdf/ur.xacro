@@ -1,8 +1,8 @@
+<?xml version="1.0"?>
 <!--
     Refactor by WHI for connecting to other link
      - Xinjue Zou
 -->
-<?xml version="1.0"?>
 <!-- <robot xmlns:xacro="http://wiki.ros.org/xacro" name="$(arg robot_model)_robot"> -->
 <robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur_robot">
 
