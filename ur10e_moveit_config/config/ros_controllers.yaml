@@ -3,9 +3,9 @@ controller_list:
   action_ns: follow_joint_trajectory
   type: FollowJointTrajectory
   joints:
-    - shoulder_pan_joint
-    - shoulder_lift_joint
-    - elbow_joint
-    - wrist_1_joint
-    - wrist_2_joint
-    - wrist_3_joint
+    - $(arg prefix)shoulder_pan_joint
+    - $(arg prefix)shoulder_lift_joint
+    - $(arg prefix)elbow_joint
+    - $(arg prefix)wrist_1_joint
+    - $(arg prefix)wrist_2_joint
+    - $(arg prefix)wrist_3_joint
