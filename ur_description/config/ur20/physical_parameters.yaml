@@ -19,7 +19,7 @@ inertia_parameters:
   base_mass: 4.0  # This mass might be incorrect
   shoulder_mass: 16.343
   upper_arm_mass: 29.632
-  upper_arm_inertia_offset: 0.175 # measured from model # TODO
+  upper_arm_inertia_offset: 0.275 # measured from model
   forearm_mass: 7.879
   wrist_1_mass: 3.054
   wrist_2_mass: 3.126
