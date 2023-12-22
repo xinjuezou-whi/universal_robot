@@ -1,0 +1,84 @@
+# Physical parameters
+
+# from https://www.universal-robots.com/download/mechanical-ur20-ur30/dh-parameters-for-calculations-of-kinematics-and-dynamics-ur20/
+dh_parameters:
+  d1: 0.2363
+  a2: -0.862
+  a3: -0.7287
+  d4: 0.201
+  d5: 0.1593
+  d6: 0.1543
+
+# source: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/blob/rolling/config/ur20/physical_parameters.yaml
+offsets:
+  shoulder_offset: 0.26 # measured from model
+  elbow_offset: 0.043 # measured from model
+
+inertia_parameters:
+  # from https://www.universal-robots.com/download/mechanical-ur20-ur30/dh-parameters-for-calculations-of-kinematics-and-dynamics-ur20/
+  base_mass: 4.0  # This mass might be incorrect
+  shoulder_mass: 16.343
+  upper_arm_mass: 29.632
+  upper_arm_inertia_offset: 0.175 # measured from model # TODO
+  forearm_mass: 7.879
+  wrist_1_mass: 3.054
+  wrist_2_mass: 3.126
+  wrist_3_mass: 0.846
+
+# source: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/blob/rolling/config/ur20/physical_parameters.yaml
+  shoulder_radius: x0.060   # FROM UR5 CURRENTLY NOT USED ANYMORE
+  upper_arm_radius: x0.054  # FROM UR5 CURRENTLY NOT USED ANYMORE
+  elbow_radius: x0.060      # FROM UR5 CURRENTLY NOT USED ANYMORE
+  forearm_radius: x0.040    # FROM UR5 CURRENTLY NOT USED ANYMORE
+  wrist_radius: x0.045      # FROM UR5 CURRENTLY NOT USED ANYMORE
+
+# source: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/blob/rolling/config/ur20/physical_parameters.yaml
+  links:
+    base:
+      radius: 0.075
+      length: 0.038
+    shoulder:
+      radius: 0.075
+      length: 0.178
+    upperarm:
+      radius: 0.075
+      length: 0.852
+    forearm:
+      radius: 0.075
+      length: 0.7287
+    wrist_1:
+      radius: 0.075
+      length: 0.12
+    wrist_2:
+      radius: 0.075
+      length: 0.12
+    wrist_3:
+      radius: 0.045
+      length: 0.05
+
+# source: https://github.com/UniversalRobots/Universal_Robots_ROS2_Description/blob/rolling/config/ur20/physical_parameters.yaml
+  center_of_mass: # Adjusted manually
+    shoulder_cog:
+      x: 0.0
+      y: 0.00244
+      z: -0.037
+    upper_arm_cog:
+      x: 0.00001
+      y: 0.15061
+      z: 0.48757
+    forearm_cog:
+      x: -0.00012
+      y: 0.06112
+      z: 0.2984
+    wrist_1_cog:
+      x: -0.00021
+      y: -0.00112
+      z: 0.02269
+    wrist_2_cog:
+      x: -0.00021
+      y: 0.00112
+      z: 0.002269
+    wrist_3_cog:
+      x: 0.0
+      y: -0.001156
+      z: -0.00149
