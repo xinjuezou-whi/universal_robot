@@ -1,0 +1,23 @@
+<launch>
+  <!-- urdf and srdf file -->
+  <arg name="urdf_file" default="$(find ur_description)/urdf/ur20.xacro"/>
+  <arg name="srdf_file" default="$(find ur20_moveit_config)/config/ur20.srdf"/>
+
+  <arg name="sim" default="false" />
+  <arg name="debug" default="false" />
+  <arg name="with_rviz" default="true"/>
+
+  <!-- Remap follow_joint_trajectory -->
+  <remap if="$(arg sim)" from="/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/eff_joint_traj_controller/follow_joint_trajectory"/>
+
+  <!-- Launch moveit -->
+  <include file="$(dirname)/move_group.launch">
+    <arg name="urdf_file" value="$(arg urdf_file)"/>
+    <arg name="srdf_file" value="$(arg srdf_file)"/>
+    <arg name="debug" default="$(arg debug)" />
+  </include>
+
+  <group if="$(arg with_rviz)">
+    <include file="$(dirname)/moveit_rviz.launch"/>
+  </group>
+</launch>
