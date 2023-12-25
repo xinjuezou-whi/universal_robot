@@ -1,5 +1,7 @@
 <launch>
 
+  <arg name="prefix" default=""/>
+
   <!-- execute the trajectory in 'interpolate' mode or jump to goal position in 'last point' mode -->
   <arg name="fake_execution_type" default="interpolate" />
 
