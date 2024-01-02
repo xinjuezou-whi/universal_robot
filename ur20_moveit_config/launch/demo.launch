@@ -1,5 +1,18 @@
 <launch>
 
+  <!-- argument -->
+  <arg name="vehicle" default=""/>
+  <arg name="vehicle_model" default=""/>
+
+  <!-- urdf and srdf file -->
+  <arg name="urdf_file" default="$(find ur_description)/urdf/ur20.xacro" if="$(eval arg('vehicle') == '')"/>
+  <arg name="srdf_file" default="$(find ur20_moveit_config)/config/ur20.srdf" if="$(eval arg('vehicle') == '')"/>
+  <arg name="base_link" default="base_link" if="$(eval arg('vehicle') == '')"/>
+
+  <arg name="urdf_file" default="$(find ur_description)/urdf/NaviBOT_$(arg vehicle)_$(arg vehicle_model)_ur_20.xacro" unless="$(eval arg('vehicle') == '')"/>
+  <arg name="srdf_file" default="$(find ur20_moveit_config)/config/ur20_combined.srdf" unless="$(eval arg('vehicle') == '')"/>
+  <arg name="base_link" default="ur20_base_link" unless="$(eval arg('vehicle') == '')"/>
+
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
 
@@ -44,6 +57,8 @@
 
   <!-- Run the main MoveIt executable without trajectory execution (we do not have controllers configured by default) -->
   <include file="$(dirname)/move_group.launch">
+    <arg name="urdf_file" value="$(arg urdf_file)"/>
+    <arg name="srdf_file" value="$(arg srdf_file)"/>
     <arg name="allow_trajectory_execution" value="true"/>
     <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
     <arg name="fake_execution_type" value="$(arg fake_execution_type)"/>

@@ -1,11 +1,24 @@
 <launch>
+
+  <!-- argument -->
+  <arg name="vehicle" default=""/>
+  <arg name="vehicle_model" default=""/>
+
   <!-- urdf and srdf file -->
-  <arg name="urdf_file" default="$(find ur_description)/urdf/ur10e.xacro"/>
-  <arg name="srdf_file" default="$(find ur10e_moveit_config)/config/ur10e.srdf"/>
+  <arg name="urdf_file" default="$(find ur_description)/urdf/ur10e.xacro" if="$(eval arg('vehicle') == '')"/>
+  <arg name="srdf_file" default="$(find ur10e_moveit_config)/config/ur10e.srdf" if="$(eval arg('vehicle') == '')"/>
+  <arg name="base_link" default="base_link" if="$(eval arg('vehicle') == '')"/>
+
+  <arg name="urdf_file" default="$(find ur_description)/urdf/NaviBOT_$(arg vehicle)_$(arg vehicle_model)_ur_10e.xacro" unless="$(eval arg('vehicle') == '')"/>
+  <arg name="srdf_file" default="$(find ur10e_moveit_config)/config/ur10e_combined.srdf" unless="$(eval arg('vehicle') == '')"/>
+  <arg name="base_link" default="ur10e_base_link" unless="$(eval arg('vehicle') == '')"/>
 
   <arg name="sim" default="false" />
   <arg name="debug" default="false" />
   <arg name="with_rviz" default="true"/>
+
+  <!-- If needed, broadcast static tf for robot root -->
+  <node pkg="tf2_ros" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world $(arg base_link)" />
 
   <!-- Remap follow_joint_trajectory -->
   <remap if="$(arg sim)" from="/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/eff_joint_traj_controller/follow_joint_trajectory"/>
