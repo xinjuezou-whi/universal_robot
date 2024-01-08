@@ -3,13 +3,15 @@
   <!-- argument -->
   <arg name="vehicle" default=""/>
   <arg name="vehicle_model" default=""/>
+  <arg name="prefix" default="" if="$(eval arg('vehicle') == '')"/>
+  <arg name="prefix" default="ur20_" unless="$(eval arg('vehicle') == '')"/>
 
   <!-- urdf and srdf file -->
   <arg name="urdf_file" default="$(find ur_description)/urdf/ur20.xacro" if="$(eval arg('vehicle') == '')"/>
   <arg name="srdf_file" default="$(find ur20_moveit_config)/config/ur20.srdf" if="$(eval arg('vehicle') == '')"/>
   <arg name="base_link" default="base_link" if="$(eval arg('vehicle') == '')"/>
 
-  <arg name="urdf_file" default="$(find ur_description)/urdf/NaviBOT_$(arg vehicle)_$(arg vehicle_model)_ur_20.xacro" unless="$(eval arg('vehicle') == '')"/>
+  <arg name="urdf_file" default="$(find whi_amr_description)/urdf/NaviBOT_$(arg vehicle)_$(arg vehicle_model)_ur_20.urdf.xacro" unless="$(eval arg('vehicle') == '')"/>
   <arg name="srdf_file" default="$(find ur20_moveit_config)/config/ur20_combined.srdf" unless="$(eval arg('vehicle') == '')"/>
   <arg name="base_link" default="ur20_base_link" unless="$(eval arg('vehicle') == '')"/>
 
@@ -66,6 +68,7 @@
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
     <arg name="load_robot_description" value="$(arg load_robot_description)"/>
+    <arg name="prefix" value="$(arg prefix)"/>
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
