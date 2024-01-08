@@ -3,6 +3,7 @@
   <!-- urdf and srdf file -->
   <arg name="urdf_file" default=""/>
   <arg name="srdf_file" default=""/>
+  <arg name="prefix" default=""/>
 
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
@@ -76,9 +77,10 @@
 
   <!-- Trajectory Execution Functionality -->
   <include ns="move_group" file="$(dirname)/trajectory_execution.launch.xml" if="$(arg allow_trajectory_execution)">
-    <arg name="moveit_manage_controllers" value="true" />
-    <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)" />
-    <arg name="fake_execution_type" value="$(arg fake_execution_type)" />
+    <arg name="moveit_manage_controllers" value="true"/>
+    <arg name="moveit_controller_manager" value="$(arg moveit_controller_manager)"/>
+    <arg name="fake_execution_type" value="$(arg fake_execution_type)"/>
+    <arg name="prefix" value="$(arg prefix)"/>
   </include>
 
   <!-- Sensors Functionality -->

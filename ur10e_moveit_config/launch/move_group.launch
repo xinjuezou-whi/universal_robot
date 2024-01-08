@@ -3,6 +3,7 @@
   <!-- urdf and srdf file -->
   <arg name="urdf_file" default=""/>
   <arg name="srdf_file" default=""/>
+  <arg name="prefix" default=""/>
 
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
@@ -59,6 +60,7 @@
     <arg name="moveit_manage_controllers" value="true" />
     <arg name="moveit_controller_manager" value="ur10e" unless="$(arg fake_execution)"/>
     <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
+    <arg name="prefix" value="$(arg prefix)"/>
   </include>
 
   <!-- Sensors Functionality -->
