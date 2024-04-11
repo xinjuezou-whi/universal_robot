@@ -29,14 +29,6 @@
         <joint name="wrist_2_joint" value="0"/>
         <joint name="wrist_3_joint" value="0"/>
     </group_state>
-    <group_state name="fold" group="manipulator">
-        <joint name="elbow_joint" value="-2.3561"/>
-        <joint name="shoulder_lift_joint" value="0.7853"/>
-        <joint name="shoulder_pan_joint" value="0"/>
-        <joint name="wrist_1_joint" value="1.5707"/>
-        <joint name="wrist_2_joint" value="1.5707"/>
-        <joint name="wrist_3_joint" value="0"/>
-    </group_state>
     <group_state name="ready" group="manipulator">
         <joint name="elbow_joint" value="1.5707"/>
         <joint name="shoulder_lift_joint" value="-0.7853"/>
@@ -45,10 +37,10 @@
         <joint name="wrist_2_joint" value="-1.5707"/>
         <joint name="wrist_3_joint" value="0"/>
     </group_state>
-    <group_state name="fold_inspection" group="manipulator">
+    <group_state name="fold" group="manipulator">
         <joint name="elbow_joint" value="-2.3561"/>
         <joint name="shoulder_lift_joint" value="0.7853"/>
-        <joint name="shoulder_pan_joint" value="1.5707"/>
+        <joint name="shoulder_pan_joint" value="0"/>
         <joint name="wrist_1_joint" value="1.5707"/>
         <joint name="wrist_2_joint" value="1.5707"/>
         <joint name="wrist_3_joint" value="0"/>
@@ -59,6 +51,14 @@
         <joint name="shoulder_pan_joint" value="1.5707"/>
         <joint name="wrist_1_joint" value="-3.9269"/>
         <joint name="wrist_2_joint" value="-1.5707"/>
+        <joint name="wrist_3_joint" value="0"/>
+    </group_state>
+    <group_state name="fold_inspection" group="manipulator">
+        <joint name="elbow_joint" value="-2.3561"/>
+        <joint name="shoulder_lift_joint" value="0.7853"/>
+        <joint name="shoulder_pan_joint" value="1.5707"/>
+        <joint name="wrist_1_joint" value="1.5707"/>
+        <joint name="wrist_2_joint" value="1.5707"/>
         <joint name="wrist_3_joint" value="0"/>
     </group_state>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->

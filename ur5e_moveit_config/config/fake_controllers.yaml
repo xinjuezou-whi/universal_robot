@@ -1,5 +1,6 @@
 controller_list:
   - name: fake_manipulator_controller
+    type: $(arg fake_execution_type)
     joints:
       - $(arg prefix)shoulder_pan_joint
       - $(arg prefix)shoulder_lift_joint
