@@ -53,6 +53,14 @@
         <joint name="ur5e_wrist_2_joint" value="-1.5707"/>
         <joint name="ur5e_wrist_3_joint" value="0"/>
     </group_state>
+    <group_state name="begin_inspection" group="manipulator">
+        <joint name="ur5e_elbow_joint" value="2.0943"/>
+        <joint name="ur5e_shoulder_lift_joint" value="-1.0471"/>
+        <joint name="ur5e_shoulder_pan_joint" value="3.1415"/>
+        <joint name="ur5e_wrist_1_joint" value="-4.1887"/>
+        <joint name="ur5e_wrist_2_joint" value="-1.5707"/>
+        <joint name="ur5e_wrist_3_joint" value="0"/>
+    </group_state>
     <group_state name="fold_inspection" group="manipulator">
         <joint name="ur5e_elbow_joint" value="-2.3561"/>
         <joint name="ur5e_shoulder_lift_joint" value="0.7853"/>
@@ -61,6 +69,47 @@
         <joint name="ur5e_wrist_2_joint" value="1.5707"/>
         <joint name="ur5e_wrist_3_joint" value="0"/>
     </group_state>
+    <group_state name="tool_standby" group="manipulator">
+        <joint name="ur5e_shoulder_pan_joint" value="0.883485667"/>
+        <joint name="ur5e_shoulder_lift_joint" value="-0.633205453"/>
+        <joint name="ur5e_elbow_joint" value="1.639038701"/>
+        <joint name="ur5e_wrist_1_joint" value="0.57159533"/>
+        <joint name="ur5e_wrist_2_joint" value="1.561546082"/>
+        <joint name="ur5e_wrist_3_joint" value="0.924500905"/>
+    </group_state>
+    <group_state name="grabbing_handle" group="manipulator">
+        <joint name="ur5e_shoulder_pan_joint" value="-0.01012291"/>
+        <joint name="ur5e_shoulder_lift_joint" value="-0.328296432"/>
+        <joint name="ur5e_elbow_joint" value="2.371902453"/>
+        <joint name="ur5e_wrist_1_joint" value="-0.464606647"/>
+        <joint name="ur5e_wrist_2_joint" value="1.574985117"/>
+        <joint name="ur5e_wrist_3_joint" value="0.031241394"/>
+    </group_state>
+    <group_state name="grabbing_sucker" group="manipulator">
+        <joint name="ur5e_shoulder_pan_joint" value="0.59306288"/>
+        <joint name="ur5e_shoulder_lift_joint" value="-0.340862803"/>
+        <joint name="ur5e_elbow_joint" value="1.899267292"/>
+        <joint name="ur5e_wrist_1_joint" value="0.009250245"/>
+        <joint name="ur5e_wrist_2_joint" value="1.568178333"/>
+        <joint name="ur5e_wrist_3_joint" value="0.62587507"/>
+    </group_state>
+    <group_state name="releasing_handle" group="manipulator">
+        <joint name="ur5e_shoulder_pan_joint" value="-0.009948377"/>
+        <joint name="ur5e_shoulder_lift_joint" value="-0.659559924"/>
+        <joint name="ur5e_elbow_joint" value="2.52025544"/>
+        <joint name="ur5e_wrist_1_joint" value="-0.281696141"/>
+        <joint name="ur5e_wrist_2_joint" value="1.573937919"/>
+        <joint name="ur5e_wrist_3_joint" value="0.031764992"/>
+    </group_state>
+    <group_state name="releasing_sucker" group="manipulator">
+        <joint name="ur5e_shoulder_pan_joint" value="0.59306288"/>
+        <joint name="ur5e_shoulder_lift_joint" value="-0.482583538"/>
+        <joint name="ur5e_elbow_joint" value="1.979552438"/>
+        <joint name="ur5e_wrist_1_joint" value="0.070685835"/>
+        <joint name="ur5e_wrist_2_joint" value="1.567829267"/>
+        <joint name="ur5e_wrist_3_joint" value="0.62587507"/>
+    </group_state>
+
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
     <virtual_joint name="fixed_base" type="fixed" parent_frame="world" child_link="base_link"/> <!-- for combined base_link is from the vehicle -->
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
